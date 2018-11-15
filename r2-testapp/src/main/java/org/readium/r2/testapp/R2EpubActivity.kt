@@ -156,4 +156,8 @@ class R2EpubActivity : R2EpubActivity() {
         }
     }
 
+    override fun message(text: String) {
+        toast(text)
+    }
+
 }
