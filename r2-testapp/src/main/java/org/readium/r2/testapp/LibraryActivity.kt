@@ -75,7 +75,7 @@ import java.util.*
 open class LibraryActivity : AppCompatActivity(), BooksAdapter.RecyclerViewClickListener, LcpFunctions {
 
     protected lateinit var server: Server
-    private var localPort: Int = 0
+    private val localPort: Int = 12345
 
     private lateinit var booksAdapter: BooksAdapter
     private lateinit var permissionHelper: PermissionHelper
@@ -97,11 +97,6 @@ open class LibraryActivity : AppCompatActivity(), BooksAdapter.RecyclerViewClick
 
         preferences = getSharedPreferences("org.readium.r2.settings", Context.MODE_PRIVATE)
 
-        val s = ServerSocket(0)
-        s.localPort
-        s.close()
-
-        localPort = s.localPort
         server = Server(localPort)
         R2DIRECTORY = this.getExternalFilesDir(null).path + "/"
 
